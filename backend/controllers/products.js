@@ -23,7 +23,18 @@ productModel.findByIdAndUpdate({_id: theId},{name,price,image}).then((result)=>{
 })
 }
 
+const deleteProductById = (req,res)=>{
+    const theId = req.params.id;
+    productModel.findByIdAndDelete({_id: theId}).then((result)=>{
+        res.json({success:"true",message:'the product deleted',deletedProduct:result})
+    })
+    .catch((err)=>{
+        res.json({success:"false",result:'failed to delete product'})
+    })
+    }
+
 module.exports={
     createNewProduct,
-    updateProductById
+    updateProductById,
+    deleteProductById
 }
