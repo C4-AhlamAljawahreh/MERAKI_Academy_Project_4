@@ -1,9 +1,8 @@
-const express = require ('express');
-const usermodel = require ('../database/models/userSchema')
+const userModel = require ('../database/models/userSchema')
 
 const createNewUser = (req,res)=>{
     const {firstName,lastName,age,email,password}=req.body;
-    const newUser = new usermodel ( {firstName,lastName,age,email,password})
+    const newUser = new userModel ( {firstName,lastName,age,email,password})
     newUser.save().then((result)=>{
         res.status(201)
         res.json({success:true, result:result})
