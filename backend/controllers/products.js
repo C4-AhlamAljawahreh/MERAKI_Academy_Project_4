@@ -12,6 +12,18 @@ newProduct.save()
 })
 }
 
+const updateProductById = (req,res)=>{
+const theId = req.params.id;
+const  {name,price,image} = req.body;
+productModel.findByIdAndUpdate({_id: theId},{name,price,image}).then((result)=>{
+    res.json({success:"true",message:'the product updated',oldProduct:result})
+})
+.catch((err)=>{
+    res.json({success:"false",result:'failed to update product'})
+})
+}
+
 module.exports={
-    createNewProduct
+    createNewProduct,
+    updateProductById
 }
