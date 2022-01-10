@@ -14,6 +14,9 @@ app.use('/users', userRoute)
 const roleRoute = require ('./routes/role')
 app.use('/role', roleRoute)
 
+//logIn router
+const loginRoute = require ('./routes/login')
+app.use('/login', loginRoute)
 
 
 const PORT = 5000;
