@@ -74,7 +74,6 @@ const getProductById = (req, res) => {
 
 const getProductByName = (req, res) => {
   const theName = req.query.name;
-  console.log(theName);
   productModel
     .findOne({ name : theName })
     .then((result) => {
@@ -87,11 +86,27 @@ const getProductByName = (req, res) => {
       res.json({ success: "false", result: "failed to find product" });
     });
 };
+const getProductsByCategory = (req, res) => {
+  const theCategory = req.query.category;
+  productModel
+    .find({ category : theCategory })
+    .then((result) => {
+      res.json({
+        success: "true",
+        message: `the products in category with id ${theCategory} `,result:result
+      });
+    })
+    .catch((err) => {
+      res.json({ success: "false", result: "failed to find " });
+    });
+};
+
 module.exports = {
   createNewProduct,
   updateProductById,
   deleteProductById,
   getAllProducts,
   getProductById,
-  getProductByName
+  getProductByName,
+  getProductsByCategory
 };
