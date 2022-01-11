@@ -1,8 +1,8 @@
 const productModel = require("../database/models/productSchema");
 
 const createNewProduct = (req, res) => {
-  const { name, price, image } = req.body;
-  const newProduct = new productModel({ name, price, image });
+  const { name, price, image,category } = req.body;
+  const newProduct = new productModel({ name, price, image ,category });
   newProduct
     .save()
     .then((result) => {
