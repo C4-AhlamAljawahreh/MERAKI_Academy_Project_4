@@ -40,9 +40,20 @@ const getAllProducts =(req,res)=>{
         res.json({success:"false",messgage: 'all products'})
     })
 }
+const  getProductById = (req,res)=>{
+    const theId = req.params.id;
+    const  {name,price,image} = req.body;
+    productModel.findOne({_id: theId},{name,price,image}).then((result)=>{
+        res.json({success:"true",message:`the product with id: ${theId}`,product:result})
+    })
+    .catch((err)=>{
+        res.json({success:"false",result:'failed to find product'})
+    })
+    }
 module.exports={
     createNewProduct,
     updateProductById,
     deleteProductById,
-    getAllProducts
+    getAllProducts,
+    getProductById
 }
