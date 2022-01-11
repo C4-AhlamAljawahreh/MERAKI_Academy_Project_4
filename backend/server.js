@@ -26,6 +26,9 @@ app.use('/product', productRoute)
 const categoryRoute = require ('./routes/category')
 app.use('/category', categoryRoute)
 
+//order router
+const orderRoute = require ('./routes/order')
+app.use('/order', orderRoute)
 
 const PORT = 5000;
 
