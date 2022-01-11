@@ -32,9 +32,17 @@ const deleteProductById = (req,res)=>{
         res.json({success:"false",result:'failed to delete product'})
     })
     }
-
+const getAllProducts =(req,res)=>{
+    productModel.find({}).then((result)=>{
+        res.json({success:"true",messgage: 'all products',result:result})
+    })
+    .catch((err)=>{
+        res.json({success:"false",messgage: 'all products'})
+    })
+}
 module.exports={
     createNewProduct,
     updateProductById,
-    deleteProductById
+    deleteProductById,
+    getAllProducts
 }
