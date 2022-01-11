@@ -1,8 +1,8 @@
 const userModel = require ('../database/models/userSchema')
 
 const createNewUser = (req,res)=>{
-    const {firstName,lastName,age,email,password}=req.body;
-    const newUser = new userModel ( {firstName,lastName,age,email,password})
+    const {firstName,lastName,age,email,password,role}=req.body;
+    const newUser = new userModel ( {firstName,lastName,age,email,password,role})
     newUser.save().then((result)=>{
         res.status(201)
         res.json({success:true, result:result})
