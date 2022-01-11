@@ -10,7 +10,7 @@ const productRoute = express.Router();
 productRoute.get('/',getAllProducts)
 productRoute.get('/search_1',getProductById)
 productRoute.get('/search_2',getProductByName)
-productRoute.post('/',authentication,authorization('ADD_PRODUCT'),createNewProduct);
+productRoute.post('/',authentication,createNewProduct);
 productRoute.put('/:id',authentication,authorization('UPDATE_PRODUCT'),updateProductById);
 productRoute.delete('/:id',authentication,authorization('DELETE_PRODUCT'),deleteProductById);
 
