@@ -1,7 +1,7 @@
 const userModel = require("../database/models/userSchema");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+//this function is login and create token 
 const logIn = (req, res) => {
   const { email, password } = req.body;
   userModel

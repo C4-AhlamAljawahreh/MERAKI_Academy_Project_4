@@ -1,5 +1,6 @@
 const categoryModel = require('../database/models/categorySchema')
 
+//create new category 
 const createNewCategory =(req,res)=>{
     const {name}=req.body;
     const newCategory= new categoryModel ({name})

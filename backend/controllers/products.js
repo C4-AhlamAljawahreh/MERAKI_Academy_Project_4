@@ -1,5 +1,7 @@
 const productModel = require("../database/models/productSchema");
 
+
+//this function to create new product 
 const createNewProduct = (req, res) => {
   const { name, price, image,category } = req.body;
   const newProduct = new productModel({ name, price, image ,category });
@@ -14,6 +16,7 @@ const createNewProduct = (req, res) => {
     });
 };
 
+//this function to update product by id
 const updateProductById = (req, res) => {
   const theId = req.params.id;
   const { name, price, image } = req.body;
@@ -31,6 +34,7 @@ const updateProductById = (req, res) => {
     });
 };
 
+//this function for delete product by id 
 const deleteProductById = (req, res) => {
   const theId = req.params.id;
   productModel
@@ -46,6 +50,9 @@ const deleteProductById = (req, res) => {
       res.json({ success: "false", result: "failed to delete product" });
     });
 };
+
+
+//this function for get all products
 const getAllProducts = (req, res) => {
   productModel
     .find({})
@@ -56,6 +63,8 @@ const getAllProducts = (req, res) => {
       res.json({ success: "false", messgage: "all products" });
     });
 };
+
+// this function for get product by id 
 const getProductById = (req, res) => {
     const theId = req.query.id;
     productModel
@@ -72,6 +81,7 @@ const getProductById = (req, res) => {
     });
 };
 
+// this function for get product by name 
 const getProductByName = (req, res) => {
   const theName = req.query.name;
   productModel
@@ -86,6 +96,7 @@ const getProductByName = (req, res) => {
       res.json({ success: "false", result: "failed to find product" });
     });
 };
+// this function for get products by category.
 const getProductsByCategory = (req, res) => {
   const theCategory = req.query.category;
   productModel

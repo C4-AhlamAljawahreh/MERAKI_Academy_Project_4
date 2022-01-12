@@ -5,8 +5,8 @@ const {createOrder,getAllOrders,deleteOrderById,getOrderById} = require ('../con
 const orderRoute = express.Router();
 
 orderRoute.post('/',createOrder)
-orderRoute.get('/',getAllOrders)// dont forget to add authorization to admin
-orderRoute.delete('/:id',deleteOrderById)// dont forget to add authorization to admin
+orderRoute.get('/',getAllOrders)// dont forget to add authorization & permission to admin
+orderRoute.delete('/:id',deleteOrderById)// dont forget to add authorization & permission to admin
 orderRoute.get('/:id',getOrderById)
 
 
