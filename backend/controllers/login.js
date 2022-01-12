@@ -12,7 +12,6 @@ const logIn = (req, res) => {
       if (!varified) {
         res.json({ message: "you entered wrong Password" });
       } else {
-        console.log(result)
         const payload = {
           userId: result._id,
           username: result.firstName,
