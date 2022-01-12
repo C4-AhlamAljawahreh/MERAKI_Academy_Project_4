@@ -4,7 +4,6 @@ const orderModel = require ('../database/models/orderSchema')
 
 const createOrder = (req,res)=>{
 const {products,totalPrice,userId}=req.body;
-// let totalPrice =0;
 const newOrder = new orderModel({products,totalPrice,userId})
 newOrder.save().then((order)=>{
     res.json({success:"true",message:'successfully created Order',order:order})
@@ -30,4 +29,15 @@ const deleteOrderById = (req,res)=>{
         res.json({success:"false",message:`failed to delete order with id : ${theId}`})
     })
 }
-module.exports={createOrder , getAllOrders,deleteOrderById}
+
+const getOrderById =(req,res)=>{
+    const theId = req.params.id;
+    orderModel.findOne({_id:theId}).then((result)=>{
+        res.status(200)
+        res.json({success:'true',message:`the order with id :${theId}` ,order: result})
+    }).catch((err)=>{
+        res.status(500)
+        res.json({success:'false',message:'failed to get your order' })
+    })
+}
+module.exports={createOrder , getAllOrders,deleteOrderById,getOrderById}
