@@ -1,12 +1,12 @@
 const userModel = require("../database/models/userSchema");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-//this function is login and create token 
+//this function is login and create token
 const logIn = (req, res) => {
   const { email, password } = req.body;
   userModel
     .findOne({ email: email })
-    .populate("role","-_id -__v")
+    .populate("role", "-_id -__v")
     .then(async (result) => {
       const varified = await bcrypt.compare(password, result.password);
       if (!varified) {
@@ -25,10 +25,10 @@ const logIn = (req, res) => {
         res.json({ success: "true", token: token });
       }
     })
-    .catch((err)=>{
-        res.json({ message: "you entered wrong Email" });
-    })
+    .catch((err) => {
+      res.json({ message: "you entered wrong Email" });
+    });
 };
 module.exports = {
-  logIn
+  logIn,
 };

@@ -1,10 +1,9 @@
 const productModel = require("../database/models/productSchema");
 
-
-//this function to create new product 
+//this function to create new product
 const createNewProduct = (req, res) => {
-  const { name, price, image,category } = req.body;
-  const newProduct = new productModel({ name, price, image ,category });
+  const { name, price, image, category } = req.body;
+  const newProduct = new productModel({ name, price, image, category });
   newProduct
     .save()
     .then((result) => {
@@ -34,7 +33,7 @@ const updateProductById = (req, res) => {
     });
 };
 
-//this function for delete product by id 
+//this function for delete product by id
 const deleteProductById = (req, res) => {
   const theId = req.params.id;
   productModel
@@ -51,7 +50,6 @@ const deleteProductById = (req, res) => {
     });
 };
 
-
 //this function for get all products
 const getAllProducts = (req, res) => {
   productModel
@@ -64,10 +62,10 @@ const getAllProducts = (req, res) => {
     });
 };
 
-// this function for get product by id 
+// this function for get product by id
 const getProductById = (req, res) => {
-    const theId = req.query.id;
-    productModel
+  const theId = req.query.id;
+  productModel
     .findOne({ _id: theId })
     .then((result) => {
       res.json({
@@ -81,15 +79,16 @@ const getProductById = (req, res) => {
     });
 };
 
-// this function for get product by name 
+// this function for get product by name
 const getProductByName = (req, res) => {
   const theName = req.query.name;
   productModel
-    .findOne({ name : theName })
+    .findOne({ name: theName })
     .then((result) => {
       res.json({
         success: "true",
-        message: `the product ${theName} `,result:result
+        message: `the product ${theName} `,
+        result: result,
       });
     })
     .catch((err) => {
@@ -100,11 +99,12 @@ const getProductByName = (req, res) => {
 const getProductsByCategory = (req, res) => {
   const theCategory = req.query.category;
   productModel
-    .find({ category : theCategory })
+    .find({ category: theCategory })
     .then((result) => {
       res.json({
         success: "true",
-        message: `the products in category with id ${theCategory} `,result:result
+        message: `the products in category with id ${theCategory} `,
+        result: result,
       });
     })
     .catch((err) => {
@@ -119,5 +119,5 @@ module.exports = {
   getAllProducts,
   getProductById,
   getProductByName,
-  getProductsByCategory
+  getProductsByCategory,
 };
