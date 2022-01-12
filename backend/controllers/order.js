@@ -11,6 +11,7 @@ newOrder.save().then((order)=>{
 }).catch((err)=>{
 res.json({success:"false",message:'failed to create Order'})})
 }
+
 const getAllOrders = (req,res)=>{
     orderModel.find({}).then((result)=>{
         res.status(200)
@@ -20,4 +21,13 @@ const getAllOrders = (req,res)=>{
         res.json({success:'false',message:'failed to get all orders' })
     })
 }
-module.exports={createOrder , getAllOrders}
+const deleteOrderById = (req,res)=>{
+    const theId = req.params.id
+    orderModel.findByIdAndDelete({_id: theId}).then((result)=>{
+        res.json({success:"true",message:`successfully delete order with id : ${theId}`,deletedOrder:result})
+    })
+    .catch((err)=>{
+        res.json({success:"false",message:`failed to delete order with id : ${theId}`})
+    })
+}
+module.exports={createOrder , getAllOrders,deleteOrderById}
