@@ -1,7 +1,7 @@
 const orderModel = require ('../database/models/orderSchema')
 
 
-
+//this function to create new order
 const createOrder = (req,res)=>{
 const {products,totalPrice,userId}=req.body;
 const newOrder = new orderModel({products,totalPrice,userId})
@@ -11,6 +11,7 @@ newOrder.save().then((order)=>{
 res.json({success:"false",message:'failed to create Order'})})
 }
 
+//this function to get all orders
 const getAllOrders = (req,res)=>{
     orderModel.find({}).then((result)=>{
         res.status(200)
@@ -20,6 +21,8 @@ const getAllOrders = (req,res)=>{
         res.json({success:'false',message:'failed to get all orders' })
     })
 }
+
+//this function for delete order by id 
 const deleteOrderById = (req,res)=>{
     const theId = req.params.id
     orderModel.findByIdAndDelete({_id: theId}).then((result)=>{
@@ -30,6 +33,7 @@ const deleteOrderById = (req,res)=>{
     })
 }
 
+//this function for get order by id 
 const getOrderById =(req,res)=>{
     const theId = req.params.id;
     orderModel.findOne({_id:theId}).then((result)=>{
