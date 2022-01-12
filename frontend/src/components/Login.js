@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
   return (
@@ -27,6 +27,8 @@ const Login = () => {
               .post("http://localhost:5000/login", { email, password })
               .then((result) => {
                 console.log(result.data);
+                props.setToken(result.data.token);
+                props.setIsLogin(true)
               })
               .catch((err) => {
                 console.log("error");
