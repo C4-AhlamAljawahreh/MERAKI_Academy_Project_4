@@ -15,11 +15,18 @@ const createNewUser = (req, res) => {
     .save()
     .then((result) => {
       res.status(201);
-      res.json({ success: true,message:'successfully create new user', result: result });
+      res.json({
+        success: true,
+        message: "successfully create new user",
+        result: result,
+      });
     })
     .catch((err) => {
       res.status(500);
-      res.json({ success: false,message:'failed to create new user , try again ' });
+      res.json({
+        success: false,
+        message: "failed to create new user , try again ",
+      });
     });
 };
 module.exports = {
