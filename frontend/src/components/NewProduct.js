@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-import { TokenContext } from "../App";
 import axios from "axios";
+import { AuthContext } from "../context/auth";
 const NewProduct = () => {
-  const token = useContext(TokenContext);
+  const token = useContext(AuthContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
