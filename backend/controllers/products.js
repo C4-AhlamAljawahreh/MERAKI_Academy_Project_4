@@ -8,10 +8,10 @@ const createNewProduct = (req, res) => {
     .save()
     .then((result) => {
       res.status(201);
-      res.json({ success: "true", message:'product created successfully',result: result });
+      res.json({ success: true, message:'product created successfully',result: result });
     })
     .catch((err) => {
-      res.json({ success: "false", message: "failed to add product" });
+      res.json({ success:false, message: "failed to add product" });
     });
 };
 
@@ -23,13 +23,13 @@ const updateProductById = (req, res) => {
     .findByIdAndUpdate({ _id: theId }, { name, price, image })
     .then((result) => {
       res.json({
-        success: "true",
+        success:true,
         message: "the product updated",
         oldProduct: result,
       });
     })
     .catch((err) => {
-      res.json({ success: "false", message: "failed to update product" });
+      res.json({ success:false, message: "failed to update product" });
     });
 };
 
@@ -40,13 +40,13 @@ const deleteProductById = (req, res) => {
     .findByIdAndDelete({ _id: theId })
     .then((result) => {
       res.json({
-        success: "true",
+        success:true ,
         message: "the product deleted",
         deletedProduct: result,
       });
     })
     .catch((err) => {
-      res.json({ success: "false",message: "failed to delete product" });
+      res.json({ success: false,message: "failed to delete product" });
     });
 };
 
@@ -55,10 +55,10 @@ const getAllProducts = (req, res) => {
   productModel
     .find({})
     .then((result) => {
-      res.json({ success: "true", messgage: "all products", result: result });
+      res.json({ success: true, messgage: "all products", result: result });
     })
     .catch((err) => {
-      res.json({ success: "false", messgage: "all products" });
+      res.json({ success: false, messgage: "all products" });
     });
 };
 
@@ -69,13 +69,13 @@ const getProductById = (req, res) => {
     .findOne({ _id: theId })
     .then((result) => {
       res.json({
-        success: "true",
+        success: true,
         message: `the product with id: ${theId}`,
         product: result,
       });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to find product" });
+      res.json({ success: false, result: "failed to find product" });
     });
 };
 
@@ -86,13 +86,13 @@ const getProductByName = (req, res) => {
     .findOne({ name: theName })
     .then((result) => {
       res.json({
-        success: "true",
+        success: true,
         message: `the product ${theName} `,
         result: result,
       });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to find product" });
+      res.json({ success: false, result: "failed to find product" });
     });
 };
 // this function for get products by category.
@@ -102,13 +102,13 @@ const getProductsByCategory = (req, res) => {
     .find({ category: theCategory })
     .then((result) => {
       res.json({
-        success: "true",
+        success: true,
         message: `the products in category with id ${theCategory} `,
         result: result,
       });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to find " });
+      res.json({ success: false , result: "failed to find " });
     });
 };
 
