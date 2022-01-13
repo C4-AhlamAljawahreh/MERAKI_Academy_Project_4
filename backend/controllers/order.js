@@ -24,11 +24,11 @@ const getAllOrders = (req, res) => {
     .find({})
     .then((result) => {
       res.status(200);
-      res.json({ success: "true", message: "all orders:", orders: result });
+      res.json({ success: true, message: "all orders:", orders: result });
     })
     .catch((err) => {
       res.status(500);
-      res.json({ success: "false", message: "failed to get all orders" });
+      res.json({ success:false, message: "failed to get all orders" });
     });
 };
 
@@ -39,14 +39,14 @@ const deleteOrderById = (req, res) => {
     .findByIdAndDelete({ _id: theId })
     .then((result) => {
       res.json({
-        success: "true",
+        success: true,
         message: `successfully delete order with id : ${theId}`,
         deletedOrder: result,
       });
     })
     .catch((err) => {
       res.json({
-        success: "false",
+        success: false,
         message: `failed to delete order with id : ${theId}`,
       });
     });
@@ -60,14 +60,14 @@ const getOrderById = (req, res) => {
     .then((result) => {
       res.status(200);
       res.json({
-        success: "true",
+        success: true,
         message: `the order with id :${theId}`,
         order: result,
       });
     })
     .catch((err) => {
       res.status(500);
-      res.json({ success: "false", message: "failed to get your order" });
+      res.json({ success: false, message: "failed to get your order" });
     });
 };
 module.exports = { createOrder, getAllOrders, deleteOrderById, getOrderById };
