@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../context/auth";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = () => {
+  const { saveToken } = useContext(AuthContext);
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
+  const [message, setMessage] = useState("");
+  const goTo = useNavigate();
   return (
     <>
       <div className="Login">
@@ -25,18 +30,23 @@ const Login = (props) => {
           onClick={() => {
             axios
               .post("http://localhost:5000/login", { email, password })
-              .then((result) => {
-                console.log(result.data);
-                props.setToken(result.data.token);
-                props.setIsLogin(true);
+              .then((response) => {
+                if (response.data.success) {
+                  saveToken(response.data.token);
+                  goTo("/market");
+                } else {
+                  setMessage(response.data.message);
+                }
               })
               .catch((err) => {
-                console.log("error");
+                setMessage(err.response.data);
               });
           }}
         >
           Login
         </button>
+
+        {message ? <div className="message">{message}</div> : <></>}
       </div>
     </>
   );
