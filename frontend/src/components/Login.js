@@ -28,7 +28,7 @@ const Login = (props) => {
               .then((result) => {
                 console.log(result.data);
                 props.setToken(result.data.token);
-                props.setIsLogin(true)
+                props.setIsLogin(true);
               })
               .catch((err) => {
                 console.log("error");
