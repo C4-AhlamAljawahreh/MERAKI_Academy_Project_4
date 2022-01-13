@@ -8,11 +8,11 @@ const createNewCategory = (req, res) => {
     .save()
     .then((result) => {
       res.status(201);
-      res.json({ success: "true", message: "successfully created cetagory" });
+      res.json({ success: true, message: "successfully created cetagory" });
     })
     .catch((err) => {
       res.status(500);
-      res.json({ success: "false", message: "failed to create category" });
+      res.json({ success: false, message: "failed to create category" });
     });
 };
 
