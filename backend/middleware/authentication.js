@@ -9,7 +9,7 @@ const authentication = (req, res, next) => {
     if (err) {
       res.json({ sucsess: "false", message: "invalid login first" });
     } else {
-      req.token = token;
+      req.token = result;
       next();
     }
   });

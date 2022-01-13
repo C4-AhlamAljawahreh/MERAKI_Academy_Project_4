@@ -52,10 +52,13 @@ const deleteProductById = (req, res) => {
 
 //this function for get all products
 const getAllProducts = (req, res) => {
+  const userId = req.token.userId;
+  const username = req.token.username;
+  const role = req.token.role;
   productModel
     .find({})
     .then((result) => {
-      res.json({ success: true, messgage: "all products", result: result });
+      res.json({ success: true, messgage: "all products", userId:userId ,username:username,role:role,result: result });
     })
     .catch((err) => {
       res.json({ success: false, messgage: "all products" });
