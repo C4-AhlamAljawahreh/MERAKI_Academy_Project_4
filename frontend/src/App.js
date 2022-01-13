@@ -9,6 +9,7 @@ import Login from "./components/Login"
 import Register from "./components/Rigester";
 import Market from "./components/Market";
 import NewProduct from "./components/NewProduct";
+import Order from "./components/Order";
 
 function App() {
   const {isLogIn } = useContext(AuthContext);
@@ -23,6 +24,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/market" element={isLogIn ? <Market /> : <></>} />
         <Route path="/newProduct" element={isLogIn ? <NewProduct /> : <></>} />
+        <Route path="/order" element={isLogIn ? <Order /> : <></>} />
+
       </Routes>
     </div>
   );
