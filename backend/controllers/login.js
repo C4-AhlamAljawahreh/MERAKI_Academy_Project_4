@@ -1,6 +1,8 @@
 const userModel = require("../database/models/userSchema");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+
 //this function is login and create token
 const logIn = (req, res) => {
   const { email, password } = req.body;
@@ -10,7 +12,7 @@ const logIn = (req, res) => {
     .then(async (result) => {
       const varified = await bcrypt.compare(password, result.password);
       if (!varified) {
-        res.json({ message: "you entered wrong Password" });
+        res.json({success:false, message: "you entered wrong Password" });
       } else {
         const payload = {
           userId: result._id,
@@ -26,7 +28,7 @@ const logIn = (req, res) => {
       }
     })
     .catch((err) => {
-      res.json({ message: "you entered wrong Email" });
+      res.json({success:false, message: "you entered wrong Email" });
     });
 };
 module.exports = {
