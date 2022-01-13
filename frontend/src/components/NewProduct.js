@@ -1,11 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth";
+
+
+
 const NewProduct = () => {
-  const token = useContext(AuthContext);
+  const{ token }= useContext(AuthContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
+  const [message, setMessage] = useState("");
+
+
 
   return (
     <>
@@ -46,11 +52,16 @@ const NewProduct = () => {
               )
               .then((response) => {
                 console.log(response.data);
-              });
+                setMessage(response.data.message)
+              }).catch((err)=>{
+                console.log(err.response.data.message)
+              })
           }}
         >
           add product to market
         </button>
+        {message ? <div className="message">{message}</div> : <></>}
+
       </div>
     </>
   );
