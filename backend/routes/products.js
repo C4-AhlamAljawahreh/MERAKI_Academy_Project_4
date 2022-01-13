@@ -14,21 +14,19 @@ const { authorization } = require("../middleware/authorization");
 const productRoute = express.Router();
 
 //      /product
-productRoute.get("/", getAllProducts);
-productRoute.get("/search_1", getProductById);
-productRoute.get("/search_2", getProductByName);
-productRoute.get("/search_3", getProductsByCategory);
+productRoute.get("/",authentication, getAllProducts);
+productRoute.get("/search_1",authentication, getProductById);
+productRoute.get("/search_2",authentication, getProductByName);
+productRoute.get("/search_3",authentication, getProductsByCategory);
 productRoute.post("/", authentication, createNewProduct);
 productRoute.put(
   "/:id",
   authentication,
-  authorization("UPDATE_PRODUCT"),
   updateProductById
 );
 productRoute.delete(
   "/:id",
   authentication,
-  authorization("DELETE_PRODUCT"),
   deleteProductById
 );
 
