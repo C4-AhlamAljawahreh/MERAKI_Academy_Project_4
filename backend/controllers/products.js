@@ -8,10 +8,10 @@ const createNewProduct = (req, res) => {
     .save()
     .then((result) => {
       res.status(201);
-      res.json({ success: "true", result: result });
+      res.json({ success: "true", message:'product created successfully',result: result });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to add product" });
+      res.json({ success: "false", message: "failed to add product" });
     });
 };
 
@@ -29,7 +29,7 @@ const updateProductById = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to update product" });
+      res.json({ success: "false", message: "failed to update product" });
     });
 };
 
@@ -46,7 +46,7 @@ const deleteProductById = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ success: "false", result: "failed to delete product" });
+      res.json({ success: "false",message: "failed to delete product" });
     });
 };
 
