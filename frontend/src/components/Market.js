@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
-import { TokenContext } from "../App";
 import Product from "./Product";
+
+import { AuthContext } from "../context/auth";
 const Market = () => {
-  const token = useContext(TokenContext);
+    const {token}= useContext(AuthContext)
+
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
@@ -14,7 +16,6 @@ const Market = () => {
       })
       .then((response) => {
         setProducts(response.data.result);
-        console.log(response.data.result);
       });
   }, []);
   return (
@@ -24,11 +25,11 @@ const Market = () => {
         <div className="products">
           {products.map((element, index) => {
             return (
-              <>
-                <div>
-                    <Product name={element.name} price={element.price} image={element.image}/>
-                </div>
-              </>
+              <Product
+                name={element.name}
+                price={element.price}
+                image={element.image}
+              />
             );
           })}
         </div>
