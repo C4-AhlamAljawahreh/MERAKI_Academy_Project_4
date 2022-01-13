@@ -8,11 +8,11 @@ const createNewRole = (req, res) => {
     .save()
     .then((result) => {
       res.status(201);
-      res.json({ success: true, result: result });
+      res.json({ success: true,message:"the Role created successfully", result: result });
     })
     .catch((err) => {
       res.status(500);
-      res.json(err);
+      res.json({ success: false, message:'failed to create Role' });
     });
 };
 module.exports = {
