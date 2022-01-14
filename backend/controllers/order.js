@@ -21,7 +21,7 @@ const createOrder = (req, res) => {
 //this function to get all orders
 const getAllOrders = (req, res) => {
   orderModel
-    .find({})
+    .find({}).populate('products')
     .then((result) => {
       res.status(200);
       res.json({ success: true, message: "all orders:", orders: result });
@@ -40,14 +40,14 @@ const deleteOrderById = (req, res) => {
     .then((result) => {
       res.json({
         success: true,
-        message: `successfully delete order with id : ${theId}`,
+        message: `the order deleted successfully`,
         deletedOrder: result,
       });
     })
     .catch((err) => {
       res.json({
         success: false,
-        message: `failed to delete order with id : ${theId}`,
+        message: `failed to delete order `,
       });
     });
 };
@@ -56,7 +56,7 @@ const deleteOrderById = (req, res) => {
 const getOrderById = (req, res) => {
   const theId = req.params.id;
   orderModel
-    .findOne({ _id: theId })
+    .findOne({ _id: theId }).populate('products')
     .then((result) => {
       res.status(200);
       res.json({
