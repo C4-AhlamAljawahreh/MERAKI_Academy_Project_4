@@ -5,12 +5,14 @@ const {
   deleteOrderById,
   getOrderById,
 } = require("../controllers/order");
+const { authentication } = require("../middleware/authentication");
+
 
 const orderRoute = express.Router();
-
-orderRoute.post("/", createOrder);
-orderRoute.get("/", getAllOrders); // dont forget to add authorization & permission to admin
-orderRoute.delete("/:id", deleteOrderById); // dont forget to add authorization & permission to admin
-orderRoute.get("/:id", getOrderById);
+///         /order
+orderRoute.post("/", authentication,createOrder);
+orderRoute.get("/",authentication, getAllOrders); // dont forget to add authorization & permission to admin
+orderRoute.delete("/:id", authentication,deleteOrderById); // dont forget to add authorization & permission to admin
+orderRoute.get("/:id",authentication, getOrderById);
 
 module.exports = orderRoute;
