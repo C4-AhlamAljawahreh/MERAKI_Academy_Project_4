@@ -55,14 +55,20 @@ const getAllProducts = (req, res) => {
   const userId = req.token.userId;
   const username = req.token.username;
   const role = req.token.role;
+  const limit = req.query.limit;
+  const skip = req.query.skip;
+  const page = req.query.page;
+
   productModel
-    .find({})
+    .find({}).skip(skip).limit(limit)
     .then((result) => {
       res.json({ success: true, messgage: "all products", userId:userId ,username:username,role:role,result: result });
     })
     .catch((err) => {
       res.json({ success: false, messgage: "all products" });
     });
+
+    // skip() limit()
 };
 
 // this function for get product by id
@@ -86,7 +92,7 @@ const getProductById = (req, res) => {
 const getProductByName = (req, res) => {
   const theName = req.query.name;
   productModel
-    .findOne({ name: theName })
+    .find({ name: theName })
     .then((result) => {
       res.json({
         success: true,
@@ -102,7 +108,7 @@ const getProductByName = (req, res) => {
 const getProductsByCategory = (req, res) => {
   const theCategory = req.query.category;
   productModel
-    .find({ category: theCategory })
+    .find({ category: theCategory }).populate('category')
     .then((result) => {
       res.json({
         success: true,
@@ -111,7 +117,7 @@ const getProductsByCategory = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ success: false , result: "failed to find " });
+      res.json({ success: false , message: "failed to find " });
     });
 };
 
