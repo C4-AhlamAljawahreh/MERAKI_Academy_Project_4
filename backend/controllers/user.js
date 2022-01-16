@@ -9,7 +9,7 @@ const createNewUser = (req, res) => {
     age,
     email,
     password,
-    role,
+    role : role || "61dc2c37a3d669c31751c934" ,
   });
   newUser
     .save()
