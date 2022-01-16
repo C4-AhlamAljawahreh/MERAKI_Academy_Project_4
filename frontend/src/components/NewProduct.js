@@ -10,6 +10,7 @@ const NewProduct = () => {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const [message, setMessage] = useState("");
+  const[category,setCategory]=useState('')
 
 
 
@@ -38,12 +39,19 @@ const NewProduct = () => {
             setImage(e.target.value);
           }}
         />
+        <select name="category"  onChange={(e)=>{
+         setCategory(e.target.value)
+
+}}>
+<option >all</option>
+  <option value='61dda49d9224336c2c106606'>clothes</option>
+</select>
         <button
           onClick={() => {
             axios
               .post(
                 "http://localhost:5000/product",
-                { name, price, image },
+                { name, price, image,category },
                 {
                   headers: {
                     authorization: "Bearer " + token,
