@@ -12,20 +12,26 @@ const Navigation = () => {
               <>
                 <Link to="/login">login </Link>
                 <Link to="/register">register</Link>
+
               </>
             ) : (
               <>
-                <Link to="/market">Market</Link>
-                
-                {role=='user'?<>               
+                {role!=='admin'?<>  
+                <Link to="/market">Market</Link>             
                 <Link to="/cart">Mycart</Link>
-                
+                {/* <Link to="/order">MyOrders</Link> */}
                 </>:<>
+                </>}
+                {role=='admin'?<>  
+                <Link to="/market">Market</Link>             
                 <Link to="/newProduct">NewProduct</Link>
                 <Link to="/order">Orders</Link>
+                </>:<>
+
                 </>}
               
                 <button onClick={logout}>Logout</button>
+
               </>
             )}
           </div>
