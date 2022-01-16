@@ -4,7 +4,7 @@ import Product from "./Product";
 
 import { AuthContext } from "../context/auth";
 const Market = () => {
-  const { token, setUsername, username, setRole, addToCart, setUserId, role } =
+  const { token, setUsername,  setRole, addToCart, setUserId, role } =
     useContext(AuthContext);
     
 
@@ -36,8 +36,8 @@ const Market = () => {
   return (
     <>
       <div>
-        <h1>Market</h1>
-        <h3>welcome {username}</h3>
+        
+        {/* search  */}
         <input placeholder="product title.." onChange={(e)=>{
           setTitle(e.target.value)
         }}/>
@@ -56,7 +56,7 @@ const Market = () => {
 <select name="category"  onChange={(e)=>{
 setCategoryId(e.target.value)
 }}>
-<option >all</option>
+<option >...</option>
   <option value='61dda49d9224336c2c106606'>clothes</option>
 </select>
 <button onClick={()=>{
@@ -98,12 +98,14 @@ axios.get(`http://localhost:5000/product/search_3?category=${categoryId}`, {
             );
           })}
         </div>
+        <div className="pagination">
        {page == 1? <></>:<button onClick={()=>{
           setPage(page-1)
         }}>previos</button> }
         <button onClick={()=>{
           setPage(page+1)
         }}>next</button>
+        </div>
       </div>
     </>
   );

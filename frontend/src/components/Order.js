@@ -8,7 +8,7 @@ const Order = () => {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState("");
-  const { token ,userId} = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/order/${id}`, {
@@ -26,8 +26,7 @@ const Order = () => {
 
   return (
     <>
-      <div>
-        Order
+      <div className="Order">
         {products.map((ele, index) => {
           return (
             <>

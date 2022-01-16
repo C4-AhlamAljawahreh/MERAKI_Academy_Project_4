@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Navigation = () => {
-    const {isLogIn,logout,role} = useContext(AuthContext)
+    const {isLogIn,logout,role,username} = useContext(AuthContext)
       return (
         <>
           <div className="Navigation" style={{ display: "flex", gap: "20px" }}>
@@ -31,7 +31,7 @@ const Navigation = () => {
                 </>}
               
                 <button onClick={logout}>Logout</button>
-
+                <p className="username">{username}</p>
               </>
             )}
           </div>

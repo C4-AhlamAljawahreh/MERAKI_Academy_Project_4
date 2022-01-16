@@ -4,9 +4,9 @@ const Product = (props) => {
   return (
     <>
       <div className="product">
-        <h1>{props.name}</h1>
-        <h1>{props.price}</h1>
-        <img src={props.image} />
+      <img src={props.image} />
+        <h4>{props.name}</h4>
+        <h3>Price:{props.price}</h3>
       </div>
     </>
   );

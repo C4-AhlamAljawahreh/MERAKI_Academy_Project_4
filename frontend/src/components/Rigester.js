@@ -13,41 +13,51 @@ const Register = () => {
   return (
     <>
       <div className="Register" style={{ display: "grid", gap: "20px" }}>
+      <label for="firstName">
+         first Name
         <input
           placeholder="firstName"
           type="text"
           onChange={(e) => {
             setFirstName(e.target.value);
           }}
-        />
+        /></label>
+        <label for="lastName">
+          Last Name
         <input
           placeholder="lastName"
           type="text"
           onChange={(e) => {
             setLastName(e.target.value);
           }}
-        />
+        /></label>
+                <label for="age">
+          age
         <input
           placeholder="age"
           type="number"
           onChange={(e) => {
             setAge(e.target.value);
           }}
-        />
+        /></label>
+                <label for="email">
+          Email
         <input
           placeholder="email"
           type="email"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-        />
+        /></label>
+                <label for="password">
+          password
         <input
           placeholder="password"
           type="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-        />
+        /></label>
         <button
           onClick={() => {
             axios

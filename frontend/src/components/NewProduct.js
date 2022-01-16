@@ -44,7 +44,7 @@ const NewProduct = () => {
 
 }}>
 <option >all</option>
-  <option value='61dda49d9224336c2c106606'>clothes</option>
+  <option value='61dda49d9224336c2c106606'>food</option>
 </select>
         <button
           onClick={() => {
@@ -59,10 +59,9 @@ const NewProduct = () => {
                 }
               )
               .then((response) => {
-                console.log(response.data);
                 setMessage(response.data.message)
               }).catch((err)=>{
-                console.log(err.response.data.message)
+                setMessage(err.response.data.message)
               })
           }}
         >

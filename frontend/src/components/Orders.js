@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 const Orders = () => {
   const { token, username,role ,userId} = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-  // const [filtered, setFiltered] = useState([]);
 
   const goTo = useNavigate();
   useEffect(() => {
@@ -23,10 +22,7 @@ const Orders = () => {
         console.log(err.response.data.message);
       });
   }, []);
-// setFiltered(orders.filter((ele,i)=>{
-//   return ele.userId == userId
-// }))
-// console.log(filtered);
+
   return (
     <>
       <div>
@@ -37,7 +33,7 @@ const Orders = () => {
 {orders.map((element, index) => {
   return (
     <div className="order" key={index}>
-      <p>userId: {element.userId}</p>
+      <p>totalPrice: {element.totalPrice}</p>
       <p>items: {element.products.length}</p>
       <button
         onClick={() => {
@@ -50,21 +46,6 @@ const Orders = () => {
   );
 })}
 </>:<></>}
-{/* {role == 'user'? <>
-{ filtered.map((element,index)=>{
-  return (    <div className="order" key={index}>
-  <p>userId: {element.userId}</p>
-  <p>items: {element.products.length}</p>
-  <button
-    onClick={() => {
-      goTo(`/order/${element._id}`);
-    }}
-  >
-    Detailes
-  </button>
-</div>)
-})}
-</>:<></>} */}
         </div>
       </div>
     </>
