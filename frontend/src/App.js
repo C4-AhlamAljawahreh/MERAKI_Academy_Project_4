@@ -22,6 +22,7 @@ function App() {
       <Navigation />
 
       <Routes>
+      {/* <Route path="/" element={ <Home /> } /> */}
         <Route path="/login" element={!isLogIn ? <Login /> : <></>} />
         <Route path="/register" element={<Register />} />
         <Route path="/market" element={isLogIn ? <Market /> : <></>} />
@@ -29,8 +30,6 @@ function App() {
         <Route path="/cart" element={isLogIn && role =="user"? <Cart /> : <></>} />
         <Route path="/order" element={isLogIn && role=='admin' ? <Orders /> : <></>} />
         <Route path="/order/:id" element={isLogIn && role=='admin' ? <Order /> : <></>} />
-
-
       </Routes>
     </div>
   );
