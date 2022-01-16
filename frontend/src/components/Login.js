@@ -11,21 +11,31 @@ const Login = () => {
   const goTo = useNavigate();
   return (
     <>
+     <h1>
+          LOG<snap className="snap">IN</snap>
+        </h1>
       <div className="Login">
-        <input
-          placeholder="email"
-          type="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+       
+        <label for="email">
+          Email
+          <input
+            placeholder="email"
+            type="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          /></label>
+        
+        <label for="password">
+          Password
+          <input
+            placeholder="password"
+            type="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          /></label>
+        
         <button
           onClick={() => {
             axios
