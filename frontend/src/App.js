@@ -12,17 +12,17 @@ import NewProduct from "./components/NewProduct";
 import Cart from "./components/Cart";
 import Orders from "./components/Orders";
 import Order from "./components/Order";
+import Home from "./components/Home";
 
 function App() {
   const {isLogIn ,role} = useContext(AuthContext);
 
   return (
     <div className="App">
-      <h1>D<snap className="snap">OO</snap>kanti</h1>
       <Navigation />
 
       <Routes>
-      {/* <Route path="/" element={ <Home /> } /> */}
+      <Route path="/" element={!isLogIn ? <Home/> : <></>} />
         <Route path="/login" element={!isLogIn ? <Login /> : <></>} />
         <Route path="/register" element={<Register />} />
         <Route path="/market" element={isLogIn ? <Market /> : <></>} />

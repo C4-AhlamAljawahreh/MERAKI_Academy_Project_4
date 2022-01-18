@@ -19,7 +19,7 @@ const LoginProvider = (props) => {
   //to save user process .
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
-    saveToken(localStorage.getItem("cart"));
+    setCart(localStorage.getItem("cart"));
 
   }, []);
 
@@ -39,7 +39,7 @@ const LoginProvider = (props) => {
   const logout = () => {
     setIsLogIn(false);
     localStorage.clear();
-    goTo("/login");
+    goTo("/");
   };
 
   const state = {

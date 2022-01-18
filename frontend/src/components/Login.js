@@ -11,11 +11,11 @@ const Login = () => {
   const goTo = useNavigate();
   return (
     <>
-     <h1>
+     
+      <div className="Login">
+      <h1 style={{ textAlign: 'center'}}>
           LOG<snap className="snap">IN</snap>
         </h1>
-      <div className="Login">
-       
         <label for="email">
           Email
           <input

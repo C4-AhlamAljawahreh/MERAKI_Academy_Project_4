@@ -16,10 +16,9 @@ const Navigation = () => {
               </>
             ) : (
               <>
-                {role!=='admin'?<>  
+                {role =='user'?<>  
                 <Link to="/market">Market</Link>             
                 <Link to="/cart">Mycart</Link>
-                {/* <Link to="/order">MyOrders</Link> */}
                 </>:<>
                 </>}
                 {role=='admin'?<>  

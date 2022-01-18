@@ -40,6 +40,7 @@ const Cart = () => {
             </div>
           );
         })}
+        <div className="checkOut">
         <button
           className="checkOut"
           onClick={() => {
@@ -65,6 +66,7 @@ const Cart = () => {
         >
           check Out
         </button>
+        </div>
         {message ? (
           <>
             <div className="message">{message}</div>

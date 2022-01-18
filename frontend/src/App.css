@@ -2,10 +2,11 @@
   border-radius: 5px;
 margin: 0px;
 padding: 0px;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-family:Helvetica, sans-serif;
+color:#333;
 }
 body{
-background-color:bisque;
+background-color:rgba(153,206,178,255);
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -28,7 +29,7 @@ align-items: center;
   width: 35%;
   height: 30%;
   text-align:end;
-  border: outset;
+  border: rgba(255,145,107,50) solid 2px;
   }
  .Register{
     display:grid;
@@ -38,10 +39,9 @@ align-items: center;
     top:30%;
     right:30%;
     width: 35%;
-    height: 30%;
     text-align:end;
-    border: outset;
-    }
+    border: rgba(255,145,107,50) solid 2px;
+  }
 input{
   height: 25px;
   width:250px;
@@ -72,6 +72,7 @@ button  {
   font-size: 17px;
 }
 
+
 .Navigation button  {
   float: left;
   color: #f2f2f2;
@@ -95,11 +96,11 @@ button  {
 }
 
 .Navigation a:hover {
-  background-color: #ddd;
+  background-color: rgba(255,145,107,255);
   color: black;
 }
-.Navigation button:hover {
-  background-color: #ddd;
+ button:hover {
+  background-color:rgba(255,145,107,255);
   color: black;
 }
 
@@ -107,7 +108,7 @@ button  {
   background-color: #04AA6D;
   color: white;
 }
-.products,.Orders,.Order{
+.products,.Orders,.Order,.Cart{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:20px;
@@ -128,13 +129,13 @@ img{
   width: 100%;
 }
 .snap{
-  color:red;
+  color:rgb(255,145,107);
 }
 .order{
   border: outset;
 }
 
-.pagination{
+.pagination,.chechOut{
   display: flex;
   position: absolute;
   bottom: 20px;
@@ -150,4 +151,35 @@ select{
   height: 25px;
   width:70px;
   margin: 10px;
+}
+.svg:hover{
+  /* color:blue; */
+  color:rgb(255,145,107);
+
+}
+.homeImage{
+  height:400px ;
+  width:500px;
+  /* position: relative;
+ left: 90%;
+ top : 15%; */
+ border-right: rgba(255,145,107,255) solid 2px; 
+ border-bottom: rgba(255,145,107,255) solid 2px ;
+}
+.wlc{
+  height:400px ;
+  width:500px;
+  position: relative;
+ left: 90%;
+ top : 60%;
+}
+.Home{
+  display: flex;
+  margin-top: 100px;
+  width: 100px;
+  position: relative;
+  gap: 30px;
+  left: 20%;
+  
+  
 }
