@@ -11,23 +11,28 @@ const LoginProvider = (props) => {
   const [username, setUsername] = useState("");
   const [userId, setUserId] = useState("");
   const [role, setRole] = useState("");
-  const [cart, setCart] = useState([]);
   const [totalPrice,setTotalPrice]=useState(0)
   const [productsId,setProductsId]=useState([])
+  const [products, setProducts] = useState([]);
 
+  const [cart, setCart] = useState( []);
+  // const [cart, setCart] = useState(
+  //   localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
+  // );
 
-  //to save user process .
   useEffect(() => {
-    saveToken(localStorage.getItem("token"));
-    setCart(localStorage.getItem("cart"));
-
-  }, []);
+    setToken(localStorage.getItem("Token"));
+    if (token) {
+      saveToken(token);
+    }
+    if (isLogIn) {
+      goTo("/");}
+  }, [token]);
 
   //this function to save the token
   const saveToken = (token) => {
     setToken(token);
     setIsLogIn(true);
-    localStorage.setItem("token", token);
   };
   const addToCart =(object)=>{
     setCart([...cart,object])
@@ -60,6 +65,8 @@ const LoginProvider = (props) => {
     productsId,
     setUserId,
     userId,
+    products,
+    setProducts
    
   };
 
