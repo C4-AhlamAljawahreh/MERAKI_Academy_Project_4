@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth";
 import Product from "./Product";
 
 const Order = () => {
+  const goTo= useNavigate();
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState("");
@@ -35,6 +36,7 @@ const Order = () => {
                 name={ele.name}
                 price={ele.price}
                 image={ele.image}
+                description={ele.description}
               />
             </>
           );
@@ -51,6 +53,7 @@ const Order = () => {
             .then((response) => {
               setMessage(response.data.message);
               setProducts([]);
+              goTo("/order")
             })
             .catch((err) => {
               setMessage(err.response.data.message);
