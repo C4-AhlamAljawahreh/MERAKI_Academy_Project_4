@@ -11,8 +11,7 @@ const Home =()=>{
             <h1>DOOKANTI</h1>
             </div>
             <div>
-            <img src="https://i.pinimg.com/originals/b7/d6/8c/b7d68cdf1b8af238860fba71514eda5a.gif" alt="shopping" className="homeImage"/>
-            {/* <Login/> */}
+            <img src="https://firebasestorage.googleapis.com/v0/b/merakigrecory.appspot.com/o/images%2FOnline%20Groceries%20(1).gif?alt=media&token=a4ed61cf-f393-4781-93ad-81c1b25e22cd"  className="homeImage"/>
             </div>
             </div>
             </>
