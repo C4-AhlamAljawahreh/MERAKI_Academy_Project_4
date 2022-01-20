@@ -43,6 +43,7 @@ const Login = () => {
               .then((response) => {
                 if (response.data.success) {
                   saveToken(response.data.token);
+                      localStorage.setItem("token", response.data.token);
                   goTo("/market");
                 } else {
                   setMessage(response.data.message);
