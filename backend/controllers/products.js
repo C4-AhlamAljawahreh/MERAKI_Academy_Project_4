@@ -2,8 +2,8 @@ const productModel = require("../database/models/productSchema");
 
 //this function to create new product
 const createNewProduct = (req, res) => {
-  const { name, price, image, category } = req.body;
-  const newProduct = new productModel({ name, price, image, category });
+  const { name, price, image,description, category } = req.body;
+  const newProduct = new productModel({ name, price, image,description, category });
   newProduct
     .save()
     .then((result) => {
@@ -18,9 +18,9 @@ const createNewProduct = (req, res) => {
 //this function to update product by id
 const updateProductById = (req, res) => {
   const theId = req.params.id;
-  const { name, price, image } = req.body;
+  const { name, price, image,category,description } = req.body;
   productModel
-    .findByIdAndUpdate({ _id: theId }, { name, price, image })
+    .findByIdAndUpdate({ _id: theId }, { name, price, image,category,description })
     .then((result) => {
       res.json({
         success:true,
@@ -57,8 +57,6 @@ const getAllProducts = (req, res) => {
   const role = req.token.role;
   const limit = req.query.limit;
   const skip = req.query.skip;
-  const page = req.query.page;
-
   productModel
     .find({}).skip(skip).limit(limit)
     .then((result) => {
@@ -68,7 +66,7 @@ const getAllProducts = (req, res) => {
       res.json({ success: false, messgage: "all products" });
     });
 
-    // skip() limit()
+  
 };
 
 // this function for get product by id

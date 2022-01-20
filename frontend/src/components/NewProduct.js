@@ -8,6 +8,7 @@ const NewProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
   const [url, setUrl] = useState("");
@@ -15,7 +16,6 @@ const NewProduct = () => {
   return (
     <>
       <div className="NewProduct" style={{ display: "grid", gap: "20px" }}>
-        New product
         <input
           placeholder="product name"
           type="text"
@@ -25,18 +25,18 @@ const NewProduct = () => {
         />
         <input
           placeholder="product price"
-          type="text"
+          type="number"
           onChange={(e) => {
             setPrice(e.target.value);
           }}
         />
-        {/* <input
-          placeholder="image url "
+                <input
+          placeholder="product description"
           type="text"
           onChange={(e) => {
-            setImage(e.target.value);
+            setDescription(e.target.value);
           }}
-        /> */}
+        />
         <input
           type="file"
           onChange={(e) => {
@@ -73,13 +73,14 @@ const NewProduct = () => {
         >
           <option>all</option>
           <option value="61dda49d9224336c2c106606">food</option>
+          <option value="61e7d5335c4c85bd883d3abe"> Beverages</option>
         </select>
         <button
           onClick={() => {
             axios
               .post(
                 "http://localhost:5000/product",
-                { name, price, image: url, category },
+                { name, price, image: url, category,description },
                 {
                   headers: {
                     authorization: "Bearer " + token,
