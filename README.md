@@ -24,6 +24,14 @@ Dookanti is a web application made to serve  small neighbourhoods, and small mar
 ## 😇User Story <a name = "user_story"></a>
 you can check a user story [here](https://trello.com/b/HhRduBEN/project-management).
 
+## 👩🏼‍💻 Data Model 
+this is a DataBase schema diagram 
+ <img  src="https://trello.com/1/cards/61daef803715be84fbc06748/attachments/61eb25e2c4445b619fdeef6d/previews/61eb25e3c4445b619fdeef80/download/database_schema_diagram.png" alt="Project DB schema diagram">
+ 
+ 
+ 
+ 
+ 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
