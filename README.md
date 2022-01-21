@@ -12,6 +12,7 @@
 
 - [About](#about)
 - [User Story](#user_story)
+- [Data Model](#data_model)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Built Using](#built_using)
@@ -24,7 +25,7 @@ Dookanti is a web application made to serve  small neighbourhoods, and small mar
 ## 😇User Story <a name = "user_story"></a>
 you can check a user story [here](https://trello.com/b/HhRduBEN/project-management).
 
-## 👩🏼‍💻 Data Model 
+## 👩🏼‍💻 Data Model  <a name = "data_model"></a>
 this is a DataBase schema diagram 
  <img  src="https://trello.com/1/cards/61daef803715be84fbc06748/attachments/61eb25e2c4445b619fdeef6d/previews/61eb25e3c4445b619fdeef80/download/database_schema_diagram.png" alt="Project DB schema diagram">
  
