@@ -58,16 +58,16 @@ npm start
 
 ## 🎈 Usage <a name="usage"></a>
 
-- as a user 
-you can add products in your cart .
-delete product from you cart .
-checkOut your order .
+### as a user 
+- you can add products in your cart .
+- delete product from you cart .
+- checkOut your order .
 
--as admin 
-you can delete product from your market. 
-you can add products to your market by adding photo from your PC.
-you can see the orders with detailes .
-you can delete orders , if its shipped .
+###as admin 
+- you can delete product from your market. 
+- you can add products to your market by adding photo from your PC.
+- you can see the orders with detailes .
+- you can delete orders , if its shipped .
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
