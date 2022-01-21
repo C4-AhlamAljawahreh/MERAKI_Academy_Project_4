@@ -11,39 +11,36 @@ const Login = () => {
   const goTo = useNavigate();
   return (
     <>
-     
       <div className="Login">
-      <h1 style={{ textAlign: 'center'}}>
+        <h1 style={{ textAlign: "center" }}>
           LOG<snap className="snap">IN</snap>
         </h1>
-        <label for="email">
-          Email
-          <input
-            placeholder="email"
-            type="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          /></label>
-        
-        <label for="password">
-          Password
-          <input
-            placeholder="password"
-            type="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          /></label>
-        
+        <label for="email">Email</label>
+        <input
+          placeholder="email"
+          type="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <label for="password">Password</label>
+        <input
+          placeholder="password"
+          type="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+
         <button
+          className="logInButton"
           onClick={() => {
             axios
               .post("http://localhost:5000/login", { email, password })
               .then((response) => {
                 if (response.data.success) {
                   saveToken(response.data.token);
-                      localStorage.setItem("token", response.data.token);
+                  localStorage.setItem("token", response.data.token);
                   goTo("/market");
                 } else {
                   setMessage(response.data.message);
