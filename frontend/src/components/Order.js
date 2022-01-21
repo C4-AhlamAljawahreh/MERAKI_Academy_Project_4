@@ -19,6 +19,7 @@ const Order = () => {
       })
       .then((response) => {
         setProducts(response.data.order.products);
+        console.log(products)
       })
       .catch((err) => {
         setProducts([]);
@@ -53,7 +54,7 @@ const Order = () => {
             .then((response) => {
               setMessage(response.data.message);
               setProducts([]);
-              goTo("/order")
+              // goTo("/order")
             })
             .catch((err) => {
               setMessage(err.response.data.message);
