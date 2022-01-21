@@ -13,6 +13,9 @@ const Register = () => {
   return (
     <>
       <div className="Register" style={{ display: "grid", gap: "20px" }}>
+      <h1 style={{ textAlign: "center" }}>
+          REG<snap className="snap">ISTER</snap>
+        </h1>
       <label for="firstName">
          first Name
         <input
@@ -58,7 +61,7 @@ const Register = () => {
             setPassword(e.target.value);
           }}
         /></label>
-        <button
+        <button className="registerButton"
           onClick={() => {
             axios
               .post("http://localhost:5000/users", {
