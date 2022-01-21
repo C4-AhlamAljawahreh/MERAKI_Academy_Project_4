@@ -2,8 +2,30 @@ import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import Product from "./Product";
 
+
+
 import { AuthContext } from "../context/auth";
 const Market = () => {
+  const getAllProducts = () => {
+    axios
+    .get(
+      `http://localhost:5000/product?page=${page}&limit=${limit}&skip=${
+        (page - 1) * limit
+      }`,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
+    )
+    .then((response) => {
+      setProducts(response.data.result);
+      setUsername(response.data.username);
+      setRole(response.data.role.role);
+      setUserId(response.data.userId);
+    });
+  
+  };
   const {
     token,
     setUsername,
@@ -15,32 +37,13 @@ const Market = () => {
     setProducts,
   } = useContext(AuthContext);
 
-  // const [products, setProducts] = useState([]);
-  const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
-  // const[skip,setSkip]=useState(0)
   const [limit, setLimit] = useState(4);
   const [page, setPage] = useState(1);
-  const [categoryId, setCategoryId] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:5000/product?page=${page}&limit=${limit}&skip=${
-          (page - 1) * limit
-        }`,
-        {
-          headers: {
-            authorization: "Bearer " + token,
-          },
-        }
-      )
-      .then((response) => {
-        setProducts(response.data.result);
-        setUsername(response.data.username);
-        setRole(response.data.role.role);
-        setUserId(response.data.userId);
-      });
+   getAllProducts();
   }, [page]);
   return (
     <>
@@ -77,6 +80,28 @@ const Market = () => {
                 />
                 {role !== "admin" ? (
                   <>
+                    {/* <div className="quantity">
+                      <button
+                        onClick={() => {
+                          if (quantity != 1) {
+                            setQuantity(quantity - 1);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                      <input placeholder="1" value={quantity} onChange={(e)=>{
+                        setQuantity(e.target.value)
+                        // e.target.value=quantity
+                      }} />
+                      <button
+                        onClick={() => {
+                          setQuantity(quantity + 1);
+                        }}
+                      >
+                        +
+                      </button>
+                    </div> */}
                     <svg
                       onClick={() => {
                         addToCart(element);
@@ -92,28 +117,29 @@ const Market = () => {
                     </svg>
                   </>
                 ) : (
-                  <>
-
-                  </>
+                  <></>
                 )}
-                  {role == "admin" ? (
+                {role == "admin" ? (
                   <>
                     <svg
-                    onClick={()=>{
-                      axios.delete(`http://localhost:5000/product/${element._id}`,
-                      {
-                        headers: {
-                          authorization: "Bearer " + token,
-                        },
-                      }).then((response)=>{
-                        setMessage(response.data.message)
-                        setPage(page )
-                      }).catch((err)=>{
-                        console.log("error");
-                      })
-                    }
-                  
-                    }
+                      onClick={() => {
+                        axios
+                          .delete(
+                            `http://localhost:5000/product/${element._id}`,
+                            {
+                              headers: {
+                                authorization: "Bearer " + token,
+                              },
+                            }
+                          )
+                          .then((response) => {
+                            setMessage(response.data.message);
+                            setPage(page);
+                          })
+                          .catch((err) => {
+                            console.log("error");
+                          });
+                      }}
                       xmlns="http://www.w3.org/2000/svg"
                       width="40"
                       height="40"
@@ -124,9 +150,10 @@ const Market = () => {
                       <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
                     </svg>
                   </>
-                ) : (<></>)}
+                ) : (
+                  <></>
+                )}
               </div>
-              
             );
           })}
         </div>
