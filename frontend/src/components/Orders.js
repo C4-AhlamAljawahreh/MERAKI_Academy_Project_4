@@ -4,9 +4,8 @@ import { AuthContext } from "../context/auth";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Orders = () => {
-  const { token, username,role ,userId} = useContext(AuthContext);
+  const { token} = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-
   const goTo = useNavigate();
   useEffect(() => {
     axios
@@ -27,25 +26,18 @@ const Orders = () => {
     <>
       <div>
         <h1>Orders</h1>
-        <h3>welcome {username}</h3>
         <div className="Orders">
-{role == 'admin'?<>
-{orders.map((element, index) => {
-  return (
-    <div className="order" key={index}>
-      <p>totalPrice: {element.totalPrice}</p>
-      <p>items: {element.products.length}</p>
-      <button
-        onClick={() => {
-          goTo(`/order/${element._id}`);
-        }}
-      >
-        Detailes
-      </button>
-    </div>
-  );
-})}
-</>:<></>}
+          {orders.map((element, index) => {
+            return (<div className="order" key ={index} >
+            <p>totalPrice: {element.totalPrice}</p>
+            <p>items: {element.products.length}</p>
+            <button onClick={()=>{
+              goTo(`/order/${element._id}`)
+            }}>Detailes</button>
+            </div>
+
+            );
+          })}
         </div>
       </div>
     </>
