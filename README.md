@@ -63,7 +63,7 @@ npm start
 - delete product from you cart .
 - checkOut your order .
 
-###as admin 
+### as admin 
 - you can delete product from your market. 
 - you can add products to your market by adding photo from your PC.
 - you can see the orders with detailes .
