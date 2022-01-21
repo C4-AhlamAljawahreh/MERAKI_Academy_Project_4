@@ -4,7 +4,7 @@
 
 ---
 
-<p align="center">Grecory Delivary App .
+<p align="center">Grecory Delivary App 
     <br> 
 </p>
 
