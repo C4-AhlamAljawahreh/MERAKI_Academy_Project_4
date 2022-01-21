@@ -19,7 +19,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Dookanti is a web application made to serve small neighbarhood, and small markets in this neighbarhood, as a user you can shop your grecories whithout go to market .
+Dookanti is a web application made to serve  small neighbourhoods, and small markets in this neighbourhood, as a user you can shop your groceries without go to market .
 
 ## 😇User Story <a name = "user_story"></a>
 you can check a user story [here](https://trello.com/b/HhRduBEN/project-management).
