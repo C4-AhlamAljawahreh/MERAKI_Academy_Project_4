@@ -2,16 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 
 * {
-  /* border-radius: 5px; */
   margin: 0px;
   padding: 0px;
   font-family: Helvetica, sans-serif;
   color: rgb(52, 96, 64);
 }
-/* h1 {
-  font-family: 'Oooh Baby', cursive;
-  font-family: "Caveat", cursive;
-} */
+
 
 body {
   background-color: rgb(255, 255, 255);
@@ -127,10 +123,6 @@ button:hover {
   color: black;
 }
 
-/* .Navigation a.active {
-  background-color: #04aa6d;
-  color: white;
-} */
 
 .products,
 .Orders,
@@ -264,18 +256,14 @@ select {
   font-size: 50px;
   color:rgb(69,90,100);
   font-family: "Caveat", cursive;
-  /* font-family: "Oooh Baby", cursive; */
 
 
 }
 .Home {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   margin-top: 100px;
   width: 100px;
   position: relative;
-  /* gap:100px; */
   left: 20%;
 }
 .quantity{
@@ -286,8 +274,6 @@ select {
 .quantity button{
   background-color: rgb(52, 96, 64)  ;
   color:black;
-  /* border : rgb(52, 96, 64)  solid 1px; */
-  /* border-radius: 50%; */
   width: 40px;
   height: 40px;
   text-align: center;
@@ -328,10 +314,67 @@ right:50%;
   position:relative;
   left: 199%;
 gap:10px;
+top:0%
 }
 p.username{
   background-color: rgb(87,160,106) ;
   color:black;
   height: 30px;
+}
+@media all and (max-width:600px){
+  .products,
+.Orders,
+.Order,
+.Cart{
+      grid-template-columns: 4fr ;
+      margin-top: 30px;
+
+  }
+  .product, .order {
+    margin-top: 40px;
+  }
+ .searchByTitle {
+      position:absolute;
+      top: 95%;
+      width: 100%;
+  } 
+  .svgSearch, .svgButton {
+    position: absolute;
+    position: absolute;
+    left: 128%;
+    top: 13%;
+    height: 28px;
+}
+.Login , .Register {
+  width: 59%;
+}
+.wlc {
+  height: 0px;
+  width: 200px;
+  position: relative;
+  left: 23%;
+  top: -17%;
+}
+.homeImage {
+  height: 400px;
+  width: 482px;
+  position: relative;
+  left: -25%;
+  bottom: 64%;
+}
+.searchByCategory {
+  position: relative;
+  left: -51%;}
+.Home {
+  display: grid;
+  margin-top: 100px;
+  width: 100px;
+  position: relative;
+  left: 20%;
+  grid-template-rows: 2fr 2fr ;
+}
+  .navBar{
+      height: 140px;
+  }
 }
 
